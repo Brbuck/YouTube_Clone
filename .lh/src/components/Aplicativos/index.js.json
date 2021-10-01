@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/Aplicativos/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1633106510427,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1633106510426,
+            "name": "Commit-0",
+            "content": "import Link from 'next/link'\r\nimport { Container, Box } from './styles';\r\n\r\nimport { TvIcon } from './styles';\r\nimport { YouTubeIcon } from './styles';\r\nimport {MusicYtIcon} from './styles';\r\nimport {KidstIcon} from './styles'\r\n\r\nfunction Aplicativos() {\r\n    return (\r\n        <Container>\r\n            <Box>\r\n                <Link href='/teste'><a><TvIcon/> YouTube TV</a></Link>\r\n            </Box>\r\n            <Box>\r\n                <Link href='/music'><a><MusicYtIcon/>YouTube Music</a></Link>\r\n                <Link href='/music'><a><KidstIcon/>YouTube Kids</a></Link>\r\n            </Box>\r\n            <Box>\r\n                <Link href='/escola'><a><YouTubeIcon/>Escola de Criadores de Conteúdo</a></Link>\r\n                <Link href='/artistas'><a><YouTubeIcon/>YouTube para Artistas</a></Link>\r\n            </Box>\r\n        </Container>\r\n    );\r\n}\r\n\r\nexport default Aplicativos;"
+        }
+    ]
+}
