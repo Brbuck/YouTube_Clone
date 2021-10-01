@@ -1,8 +1,8 @@
 import React, {useState} from 'react'
-import {setCookie} from 'nookies'
 
 import GlobalStyle from '../styles/global'
 import { ThemeProvider } from 'styled-components'
+//import theme from '../styles/theme'
 import Layout from '../components/Layout'
 import { AuthProvider } from '../context/auth'
 import { Provider } from 'next-auth/client'
@@ -17,14 +17,7 @@ const MyApp = ({ Component, pageProps}) => {
 
   const toggleTheme = () => {
     setTheme(theme.title === 'light' ? dark : light);
-    
   };
-
-  setCookie(undefined, 'user_theme', theme.title, {
-    maxAge: 60 * 60 * 1,
-    path: '/',
-   
-  })
 
   return (
     <AuthProvider>
