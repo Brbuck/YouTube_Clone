@@ -17,7 +17,7 @@ import {
     Lateral,
     CameraIcon,
     BellIcon,
-    MenuIcon, HamburguerIcon, ConfigIcon, SearchIcon
+    MenuIcon, HamburguerIcon, ConfigIcon,SearchIcon
 } from './styles'
 
 import LoginButton from '../Button'
@@ -31,12 +31,11 @@ import LogoYT_Branco from '../../assets/YT_branco.png'
 import { FaRegUserCircle } from "react-icons/fa";
 import Aplicativos from '../Aplicativos';
 import Configuracao from '../Configuracao';
-import TemasCeE from '../Tema'
 
-//import Switch from 'react-switch';
-import Conta from '../Conta';
+import Switch from 'react-switch';
 
-function Menu({ toggleTheme }) {
+
+function Menu({toggleTheme}) {
     const { click, setClick } = useAuth();
     const [showModal, setShowModal] = useState(false)
     const [showModal2, setShowModal2] = useState(false)
@@ -45,6 +44,7 @@ function Menu({ toggleTheme }) {
 
     const handleClick = () => {
         setClick(!click)
+
     }
 
     const handleModal = () => {
@@ -58,15 +58,6 @@ function Menu({ toggleTheme }) {
         setShowModal2(!showModal2)
         if (showModal === true) {
             setShowModal(!showModal)
-        }
-    }
-
-    const [showTheme, setShowTheme] = useState(false)
-    
-    const handleThema = () => {
-        setShowTheme(!showTheme)
-        if(showModal2 === true){
-            setShowModal2(!showModal2)
         }
     }
 
@@ -87,12 +78,11 @@ function Menu({ toggleTheme }) {
                     <Input type='text' placeholder='Pesquisar' />
                     <Button><SearchIcon /></Button>
                     <span><HiMicrophone /></span>
-                   {/*  <TemasCeE/> */}
                 </Search>
                 {!session ? (
                     <Acesso>
-                        {/*  <input type='checkbox' checked={title === 'dark'} onChange={toggleTheme}></input> */}
-                      {/*   <Switch
+                       {/*  <input type='checkbox' checked={title === 'dark'} onChange={toggleTheme}></input> */}
+                        <Switch
                             checked={title === 'dark'}
                             onChange={toggleTheme}
                             checkedIcon={false}
@@ -100,12 +90,12 @@ function Menu({ toggleTheme }) {
                             height={10}
                             width={40}
                             handleDiameter={20}
-                        /> */}
+                        />
                         <MenuIcon onClick={handleModal} />
                         {showModal ? <Aplicativos /> : null}
                         <ConfigIcon onClick={handleModal2} />
-                        {showModal2 ? <Configuracao handleThema={handleThema} /> : null}
-                        {showTheme ? <TemasCeE handleThema={handleThema} toggleTheme={toggleTheme}/> : null}
+                        {showModal2 ? <Configuracao /> : null}
+
                         {/*  <Link href='/teste'><a><MenuIcon /></a></Link> */}
                         {/* <Link href='./teste'><a><ConfigIcon /></a></Link> */}
                         <LoginButton onClick={() => signIn("google", { callbackUrl: "http://localhost:3000/" })}><FaRegUserCircle /><span>FAZER LOGIN</span></LoginButton>
@@ -117,15 +107,14 @@ function Menu({ toggleTheme }) {
                 ) : (
                     <Logado>
                         <Link href='/teste'><a><CameraIcon /></a></Link>
-                        <MenuIcon onClick={handleModal2} />
-                        {showModal2 ? <Configuracao /> : null}
+                        <Link href='/teste'><a><MenuIcon /></a></Link>
                         <Link href='/teste'><a><BellIcon /></a></Link>
                         <Avatar
                             onClick={() => signOut({ callbackUrl: "/" })}
                             alt="user"
                             src={session?.user?.image}
+
                         />
-                        <Conta />
                     </Logado>
                 )}
                 {/* {session && <h1>Hello, {session.user.name}!</h1>} */}
@@ -141,5 +130,14 @@ function Menu({ toggleTheme }) {
         </>
     );
 }
+
+/*export async function getStaticProps() {
+    const data = Data
+    return {
+      props: {
+        itens:  data
+      },
+    }
+  }*/
 
 export default Menu;
