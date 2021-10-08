@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/Tema/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1633718079168,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1633718079168,
+            "name": "Commit-0",
+            "content": "import {useContext} from 'react';\r\nimport Link from 'next/link';\r\nimport {ThemeContext} from 'styled-components'\r\n\r\nimport { Container, Theme } from './styles';\r\n\r\nfunction Tema({toggleTheme, handleThema}) {\r\n    const { title } = useContext(ThemeContext)\r\n    return (\r\n        <Container>\r\n            <Link href='teste'><a>Aparência</a></Link>\r\n            <p>Esta configuração será usada apenas neste navegador</p>\r\n            <Theme>\r\n                <input type='checkbox'  />\r\n                <label>Usar o Tema do Disposotivo</label>\r\n            </Theme>\r\n            <Theme>\r\n                <input type='checkbox' checked={title === 'light'} onClick={handleThema} onChange={toggleTheme} />\r\n                <label>Tema claro</label>\r\n            </Theme>\r\n            <Theme>\r\n                <input type='checkbox' checked={title === 'dark'} onChange={toggleTheme} onClick={handleThema} />\r\n                <label>Tema escuro</label>\r\n            </Theme>  \r\n        </Container>\r\n    );\r\n}\r\n\r\nexport default Tema;"
+        }
+    ]
+}

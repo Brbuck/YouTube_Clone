@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/Tema/styles.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1633718054390,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1633718054390,
+            "name": "Commit-0",
+            "content": "import styled from \"styled-components\";\r\n\r\nexport const Container = styled.div`\r\n    position: fixed;\r\n    top: 70px;\r\n    left: 72%;\r\n    width: 310px;\r\n    height: auto;\r\n    background-color: ${props => props.theme.colors.primary};\r\n\r\n    display: flex;\r\n    flex-direction: column;   \r\n    border: 1px solid ${props => props.theme.colors.border}; \r\n\r\n    p{\r\n        font-size: 0.9rem;\r\n    }\r\n`\r\n\r\nexport const Theme = styled.div`\r\n    cursor: pointer;\r\n    display: flex;\r\n    align-items: center;\r\n\r\n    &:hover{\r\n        background-color: #ccc;\r\n    }\r\n\r\n    input[type=\"checkbox\"]{\r\n        width: 30px;\r\n        height: 30px;\r\n\r\n    }\r\n\r\n    label{\r\n        font-size: 1rem;\r\n        color: ${props => props.theme.colors.text};\r\n        cursor: pointer;\r\n    }\r\n`"
+        }
+    ]
+}
