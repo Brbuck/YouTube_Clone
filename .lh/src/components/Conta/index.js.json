@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/components/Conta/index.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1633717884846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1633717884846,
+            "name": "Commit-0",
+            "content": "import Link from 'next/link'\r\n\r\nimport { AccountIcon, Container, Box, BoxAccount, BoardIcon, ChannelIcon, ConfigIcon, DataIcon, FeedIcon, Helpcon, LanguageIcon, LocalIcon, MoonIcon, PurchasesIcon, StudioIcon, SignOutIcon } from './styles';\r\n\r\n\r\nfunction Conta() {\r\n    return (\r\n        <Container>\r\n            <BoxAccount>\r\n                <div>\r\n                    <span>Antonio Ribeiro' Ribeiro</span>\r\n                    <Link href='/teste'><a>Gerenciar sua Conta do Google</a></Link>\r\n                </div>\r\n            </BoxAccount>\r\n            <Box>\r\n                <Link href='/teste'><a><ChannelIcon /> Seu Canal</a></Link>\r\n                <Link href='/teste'><a><PurchasesIcon /> Compras e Assinaturas</a></Link>\r\n                <Link href='/teste'><a><StudioIcon /> YouTube Studio</a></Link>\r\n                <Link href='/teste'><a><AccountIcon /> Alterar Conta</a></Link>\r\n                <Link href='/teste'><a><SignOutIcon /> Sair</a></Link>\r\n            </Box>\r\n            <Box>\r\n                <Link href='/teste'><a><MoonIcon /> Aparência: Tema do Dispositivo</a></Link>\r\n                <Link href='/teste'><a><LanguageIcon /> idioma: português</a></Link>\r\n                <Link href='/teste'><a><LocalIcon /> local: Brasil</a></Link>\r\n                <Link href='/teste'><a><ConfigIcon /> configurações</a></Link>\r\n                <Link href='/teste'><a><DataIcon /> seus dados no youtube</a></Link>\r\n                <Link href='/teste'><a><Helpcon /> ajuda</a></Link>\r\n                <Link href='/teste'><a><FeedIcon /> enviar feedback</a></Link>\r\n                <Link href='/teste'><a><BoardIcon /> atalhos do teclado</a></Link>\r\n            </Box>\r\n            <Box>\r\n                <Link href='/teste'><a>modo restrito: desativado</a></Link>\r\n            </Box>\r\n        </Container>\r\n    );\r\n}\r\n\r\nexport default Conta;"
+        }
+    ]
+}
