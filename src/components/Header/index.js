@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import Image from 'next/image'
 import { useAuth } from '../../context/auth';
-import { signIn, signOut, useSession } from "next-auth/client";
+import { signIn, useSession } from "next-auth/client";
 
 import { ThemeContext } from 'styled-components';
 
@@ -31,46 +31,64 @@ import LogoYT_Branco from '../../assets/YT_branco.png'
 import { FaRegUserCircle } from "react-icons/fa";
 import Aplicativos from '../Aplicativos';
 import Configuracao from '../Configuracao';
-import TemasCeE from '../Tema'
+import Temas from '../Tema'
 
-//import Switch from 'react-switch';
+
 import Conta from '../Conta';
 
 function Menu({ toggleTheme }) {
-    const { click, setClick } = useAuth();
-    const [showModal, setShowModal] = useState(false)
-    const [showModal2, setShowModal2] = useState(false)
-
     const { title } = useContext(ThemeContext)
+    const [session] = useSession();
 
+    const { click, setClick } = useAuth();
     const handleClick = () => {
         setClick(!click)
-    }
+    }   
 
-    const handleModal = () => {
-        setShowModal(!showModal)
-        if (showModal2 === true) {
-            setShowModal2(!showModal2)
+    const [isOpenModal, setIsOpenModal] = useState(false)
+    const openModal = () => {
+        setIsOpenModal(!isOpenModal)
+        if (isOpenModal2 === true) {
+            setIsOpenModal2(!isOpenModal2)
+        }
+        if(showTheme === true){
+            setShowTheme(!showTheme)
         }
     }
 
-    const handleModal2 = () => {
-        setShowModal2(!showModal2)
-        if (showModal === true) {
-            setShowModal(!showModal)
+
+    const [isOpenModal2, setIsOpenModal2] = useState(false)
+    const openModal2 = () => {
+        setIsOpenModal2(!isOpenModal2)
+        if (isOpenModal === true) {
+            setIsOpenModal(!isOpenModal)
+        }
+
+        if(showTheme === true){
+            setShowTheme(!showTheme)
         }
     }
 
     const [showTheme, setShowTheme] = useState(false)
-    
-    const handleThema = () => {
+    const togleTheme = () => {
         setShowTheme(!showTheme)
-        if(showModal2 === true){
-            setShowModal2(!showModal2)
+        if(isOpenModal2 === true){
+            setIsOpenModal2(!isOpenModal2)
+        }
+        if(showConta === true){
+            setShowConta(!showConta)
         }
     }
 
-    const [session] = useSession();
+    const [showConta, setShowConta] = useState(false)
+    const handleShowConta = () =>{
+        setShowConta(!showConta)
+        if(isOpenModal2 === true){
+            setIsOpenModal2(!isOpenModal2)
+        }
+    }
+
+    
 
     return (
         <>
@@ -87,45 +105,30 @@ function Menu({ toggleTheme }) {
                     <Input type='text' placeholder='Pesquisar' />
                     <Button><SearchIcon /></Button>
                     <span><HiMicrophone /></span>
-                   {/*  <TemasCeE/> */}
                 </Search>
                 {!session ? (
                     <Acesso>
-                        {/*  <input type='checkbox' checked={title === 'dark'} onChange={toggleTheme}></input> */}
-                      {/*   <Switch
-                            checked={title === 'dark'}
-                            onChange={toggleTheme}
-                            checkedIcon={false}
-                            uncheckedIcon={false}
-                            height={10}
-                            width={40}
-                            handleDiameter={20}
-                        /> */}
-                        <MenuIcon onClick={handleModal} />
-                        {showModal ? <Aplicativos /> : null}
-                        <ConfigIcon onClick={handleModal2} />
-                        {showModal2 ? <Configuracao handleThema={handleThema} /> : null}
-                        {showTheme ? <TemasCeE handleThema={handleThema} toggleTheme={toggleTheme}/> : null}
-                        {/*  <Link href='/teste'><a><MenuIcon /></a></Link> */}
-                        {/* <Link href='./teste'><a><ConfigIcon /></a></Link> */}
+                        <MenuIcon onClick={openModal} />
+                        {isOpenModal ? <Aplicativos /> : null}
+                        <ConfigIcon  onClick={openModal2} />
+                        {isOpenModal2 ? <Configuracao togleTheme={togleTheme} /> : null}
+                        {showTheme ? <Temas togleTheme={togleTheme} toggleTheme={toggleTheme}/> : null}
                         <LoginButton onClick={() => signIn("google", { callbackUrl: "http://localhost:3000/" })}><FaRegUserCircle /><span>FAZER LOGIN</span></LoginButton>
-                        {/*  <button onClick={() => signIn("google", { callbackUrl: "http://localhost:3000/" })}>
-                            Fazer Login
-                        </button> */}
                     </Acesso>
 
                 ) : (
                     <Logado>
                         <Link href='/teste'><a><CameraIcon /></a></Link>
-                        <MenuIcon onClick={handleModal2} />
-                        {showModal2 ? <Configuracao /> : null}
+                        <MenuIcon onClick={openModal2} />
+                        {isOpenModal2 ? <Configuracao  /> : null}
                         <Link href='/teste'><a><BellIcon /></a></Link>
                         <Avatar
-                            onClick={() => signOut({ callbackUrl: "/" })}
                             alt="user"
                             src={session?.user?.image}
+                            onClick={handleShowConta}
                         />
-                        <Conta />
+                        {showConta ? <Conta togleTheme={togleTheme} toggleTheme={toggleTheme} /> : null}
+                        {showTheme ? <Temas togleTheme={togleTheme} toggleTheme={toggleTheme}/> : null}
                     </Logado>
                 )}
                 {/* {session && <h1>Hello, {session.user.name}!</h1>} */}
