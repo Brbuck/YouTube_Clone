@@ -1,25 +1,24 @@
 import {useContext} from 'react';
-import Link from 'next/link';
 import {ThemeContext} from 'styled-components'
 
-import { Container, Theme } from './styles';
+import {ArrowLeft, Container, Theme } from './styles';
 
-function Tema({toggleTheme, handleThema}) {
+function Tema({toggleTheme,  togleTheme}) {
     const { title } = useContext(ThemeContext)
     return (
         <Container>
-            <Link href='teste'><a>Aparência</a></Link>
+            <span><ArrowLeft onClick={togleTheme}/>Aparência</span>
             <p>Esta configuração será usada apenas neste navegador</p>
             <Theme>
-                <input type='checkbox'  />
+                <input type='checkbox'/>
                 <label>Usar o Tema do Disposotivo</label>
             </Theme>
             <Theme>
-                <input type='checkbox' checked={title === 'light'} onClick={handleThema} onChange={toggleTheme} />
+                <input type='checkbox' checked={title === 'light'} onClick={togleTheme} onChange={toggleTheme} />
                 <label>Tema claro</label>
             </Theme>
             <Theme>
-                <input type='checkbox' checked={title === 'dark'} onChange={toggleTheme} onClick={handleThema} />
+                <input type='checkbox' checked={title === 'dark'} onClick={togleTheme} onChange={toggleTheme}  />
                 <label>Tema escuro</label>
             </Theme>  
         </Container>
