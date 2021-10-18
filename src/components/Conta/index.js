@@ -1,14 +1,19 @@
 import Link from 'next/link'
+import { signOut, useSession } from "next-auth/client";
 
-import { AccountIcon, Container, Box, BoxAccount, BoardIcon, ChannelIcon, ConfigIcon, DataIcon, FeedIcon, Helpcon, LanguageIcon, LocalIcon, MoonIcon, PurchasesIcon, StudioIcon, SignOutIcon } from './styles';
+
+import { AccountIcon, Container, Box, BoxAccount, BoardIcon, ChannelIcon, ConfigIcon, DataIcon, FeedIcon, Helpcon, LanguageIcon, LogOutButton, LocalIcon, MoonIcon, PurchasesIcon, StudioIcon, SignOutIcon, ThemeButton } from './styles';
 
 
-function Conta() {
+function Conta({togleTheme}) {
+    const [session] = useSession();
+  
     return (
         <Container>
             <BoxAccount>
+                <img src={session?.user?.image} alt='user' />
                 <div>
-                    <span>Antonio Ribeiro' Ribeiro</span>
+                    {session && <span>{session.user.name}!</span>}
                     <Link href='/teste'><a>Gerenciar sua Conta do Google</a></Link>
                 </div>
             </BoxAccount>
@@ -17,10 +22,10 @@ function Conta() {
                 <Link href='/teste'><a><PurchasesIcon /> Compras e Assinaturas</a></Link>
                 <Link href='/teste'><a><StudioIcon /> YouTube Studio</a></Link>
                 <Link href='/teste'><a><AccountIcon /> Alterar Conta</a></Link>
-                <Link href='/teste'><a><SignOutIcon /> Sair</a></Link>
+                <LogOutButton onClick={() => signOut({ callbackUrl: "/" })}><a><SignOutIcon /> Sair</a></LogOutButton>
             </Box>
             <Box>
-                <Link href='/teste'><a><MoonIcon /> Aparência: Tema do Dispositivo</a></Link>
+                <ThemeButton onClick={togleTheme}><MoonIcon /> Aparência: Tema do Dispositivo</ThemeButton>
                 <Link href='/teste'><a><LanguageIcon /> idioma: português</a></Link>
                 <Link href='/teste'><a><LocalIcon /> local: Brasil</a></Link>
                 <Link href='/teste'><a><ConfigIcon /> configurações</a></Link>
