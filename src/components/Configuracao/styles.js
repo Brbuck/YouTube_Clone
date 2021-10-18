@@ -28,6 +28,19 @@ export const Box = styled.div`
     border-bottom: 1px solid ${props => props.theme.colors.secundary};
     text-transform: capitalize;
 
+    button{
+        width: 100%;
+        padding: 10px;
+        cursor: pointer;
+        text-align: left;
+        font-size: 1rem;
+        color:${props => props.theme.colors.text};
+
+        &:hover{
+            background-color:${props => props.theme.colors.hover};
+        }
+    }
+
     a{
         display: flex;
         align-items: center;
@@ -65,5 +78,4 @@ export const DataIcon = styled(MdPersonPin)`${CSSICON}`
 export const Helpcon = styled(FiHelpCircle)`${CSSICON}`
 export const FeedIcon = styled(RiFeedbackLine)`${CSSICON}`
 export const BoardIcon = styled(FaRegKeyboard)`${CSSICON}`
-
 
