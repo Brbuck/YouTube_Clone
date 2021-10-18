@@ -1,24 +1,24 @@
-import styled, {css} from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import {BsPersonSquare} from "react-icons/bs";
-import {RiMoneyDollarCircleLine} from "react-icons/ri";
-import {SiYoutubestudio} from "react-icons/si";
-import {RiAccountBoxLine} from "react-icons/ri";
-import {BiLogIn} from "react-icons/bi";
+import { BsPersonSquare } from "react-icons/bs";
+import { RiMoneyDollarCircleLine } from "react-icons/ri";
+import { SiYoutubestudio } from "react-icons/si";
+import { RiAccountBoxLine } from "react-icons/ri";
+import { BiLogIn } from "react-icons/bi";
 
-import {FiMoon} from "react-icons/fi";
-import {IoLanguageOutline} from "react-icons/io5";
-import {VscGlobe} from "react-icons/vsc";
-import {GoGear} from "react-icons/go";
-import {MdPersonPin} from "react-icons/md";
-import {FiHelpCircle} from "react-icons/fi";
-import {RiFeedbackLine} from "react-icons/ri";
-import {FaRegKeyboard} from "react-icons/fa";
+import { FiMoon } from "react-icons/fi";
+import { IoLanguageOutline } from "react-icons/io5";
+import { VscGlobe } from "react-icons/vsc";
+import { GoGear } from "react-icons/go";
+import { MdPersonPin } from "react-icons/md";
+import { FiHelpCircle } from "react-icons/fi";
+import { RiFeedbackLine } from "react-icons/ri";
+import { FaRegKeyboard } from "react-icons/fa";
 
 export const Container = styled.div`
     position: fixed;
-    top: 70px;
-    left: 80%;
+    top: 0px;
+    left: 75%;
     width: 310px;
     height: auto;
     background-color: ${props => props.theme.colors.primary};
@@ -39,7 +39,7 @@ export const Box = styled.div`
         align-items: center;
         padding: 10px;
         color: ${props => props.theme.colors.text};
-        
+        font-size: 1rem;
 
         &:hover{
             background-color:${props => props.theme.colors.hover};
@@ -48,15 +48,43 @@ export const Box = styled.div`
   
 `;
 
+export const LogOutButton = styled.button`
+    width: 100%;
+    cursor: pointer;
+    font-size: 1rem;
+  
+`
+export const ThemeButton = styled.button`
+        width: 96%;
+        padding: 10px;
+        cursor: pointer;
+        text-align: left;
+        margin-left: 2%;
+        font-size: 1rem;
+        color:${props => props.theme.colors.text};
+
+        &:hover{
+            background-color:${props => props.theme.colors.hover};
+        }
+  
+`
+
 export const BoxAccount = styled.div`
     display: flex;
     align-items: flex-start;
+    margin-top: 15px;
 
     >img{
-        
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        padding: 5px;
     }
 
     div{
+        display: flex;
+        flex-direction: column;
+
         span{
             font-size: 1rem;
             font-weight: 500;
