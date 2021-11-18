@@ -8,7 +8,7 @@ import {SiYoutubestudio} from "react-icons/si";
 export const Container = styled.div`
     position: fixed;
     top: 70px;
-    left: 70%;
+    left: calc(100% - 360px);
     width: 310px;
     height: auto;
     background-color: ${props => props.theme.colors.primary};
