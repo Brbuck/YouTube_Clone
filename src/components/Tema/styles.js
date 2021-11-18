@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     position: fixed;
     top: 70px;
-    left: 72%;
+    left: calc(100% - 400px);left: 72%;
     width: 310px;
     height: auto;
     background-color: ${props => props.theme.colors.primary};
