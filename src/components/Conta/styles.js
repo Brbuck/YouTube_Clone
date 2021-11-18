@@ -18,7 +18,7 @@ import { FaRegKeyboard } from "react-icons/fa";
 export const Container = styled.div`
     position: fixed;
     top: 0px;
-    left: 75%;
+    left: calc(100% - 380px);
     width: 310px;
     height: auto;
     background-color: ${props => props.theme.colors.primary};
