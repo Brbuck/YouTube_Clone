@@ -120,7 +120,7 @@ function Menu({ toggleTheme }) {
                     <Logado>
                         <Link href='/teste'><a><CameraIcon /></a></Link>
                         <MenuIcon onClick={openModal2} />
-                        {isOpenModal2 ? <Configuracao  /> : null}
+                        {isOpenModal2 ? <Aplicativos /> : null}
                         <Link href='/teste'><a><BellIcon /></a></Link>
                         <Avatar
                             alt="user"
