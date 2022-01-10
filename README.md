@@ -1,5 +1,8 @@
 # Clone do YouTube com Next JS
 
+![Captura de tela 2022-01-10 135509](https://user-images.githubusercontent.com/62665590/148806108-a36de008-797e-4598-9b2a-a4482843ff17.png)
+
+
 # Sobre o Projeto
 
 YouTube Clone (parcial) para fins de estudo.
